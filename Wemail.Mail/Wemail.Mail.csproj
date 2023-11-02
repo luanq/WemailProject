@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wemail.Common\Wemail.Common.csproj" />
+    <ProjectReference Include="..\Wemail.Contact\Wemail.Contact.csproj" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(ProjectDir)bin\Debug\net6.0-windows\Wemail.Mail.dll&quot; &quot;D:\CSharpProject\WemailProject\Wemail\bin\Debug\net6.0-windows\Apps&quot; /Y /S" />
+  </Target>
+</Project>

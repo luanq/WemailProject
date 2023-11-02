@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wemail.Common\Wemail.Common.csproj" />
+    <ProjectReference Include="..\Wemail.DAL\Wemail.DAL.csproj" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(ProjectDir)bin\Debug\net6.0-windows\Wemail.Contact.dll&quot; &quot;D:\CSharpProject\WemailProject\Wemail\bin\Debug\net6.0-windows\Apps&quot; /Y /S" />
+  </Target>
+</Project>
